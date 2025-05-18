@@ -103,6 +103,32 @@ jobs:
         touch dist/local/logs/index.html
         touch dist/local/cache/index.html
         touch dist/local/sessions/index.html
+    
+    - name: Debug Secrets
+      run: |
+        if [ -n "${{ secrets.FTP_SERVER }}" ]; then
+          echo "FTP_SERVER is set"
+        else
+          echo "FTP_SERVER is NOT set"
+        fi
+        
+        if [ -n "${{ secrets.FTP_USERNAME }}" ]; then
+          echo "FTP_USERNAME is set"
+        else
+          echo "FTP_USERNAME is NOT set"
+        fi
+        
+        if [ -n "${{ secrets.FTP_PASSWORD }}" ]; then
+          echo "FTP_PASSWORD is set"
+        else
+          echo "FTP_PASSWORD is NOT set"
+        fi
+        
+        if [ -n "${{ secrets.FTP_SERVER_DIR }}" ]; then
+          echo "FTP_SERVER_DIR is set"
+        else
+          echo "FTP_SERVER_DIR is NOT set"
+        fi
         
     - name: Deploy to InfinityFree
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
