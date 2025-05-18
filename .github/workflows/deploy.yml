@@ -133,9 +133,9 @@ jobs:
     - name: Deploy to InfinityFree
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ${{ secrets.FTP_SERVER }}
-        username: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
+        server: ftpupload.net
+        username: if0_39013535
+        password: Gre8DubeQv
         local-dir: ./dist/
-        server-dir: ${{ secrets.FTP_SERVER_DIR }}
+        server-dir: /
         dangerous-clean-slate: false
