@@ -79,9 +79,30 @@ jobs:
       run: |
         composer install --prefer-dist --no-progress --no-dev --no-interaction
         
-    - name: Create Deployment Package
+    - name: Prepare for Deployment
       run: |
-        php deploy-to-infinity.php
+        # Update the database configuration for InfinityFree
+        php deploy.php
+        
+        # Create necessary directories if they don't exist
+        mkdir -p dist
+        
+        # Copy essential files to dist directory
+        cp -r index.php .htaccess LICENSE.txt dist/
+        cp -r crbs-core dist/
+        cp -r assets dist/
+        
+        # Create empty directories that might be needed
+        mkdir -p dist/uploads
+        mkdir -p dist/local/logs
+        mkdir -p dist/local/cache
+        mkdir -p dist/local/sessions
+        
+        # Create placeholder files to ensure directories are kept
+        touch dist/uploads/index.html
+        touch dist/local/logs/index.html
+        touch dist/local/cache/index.html
+        touch dist/local/sessions/index.html
         
     - name: Deploy to InfinityFree
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
@@ -89,5 +110,6 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./
+        local-dir: ./dist/
         server-dir: ${{ secrets.FTP_SERVER_DIR }}
+        dangerous-clean-slate: false
