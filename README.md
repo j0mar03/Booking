@@ -1,3 +1,90 @@
+# Classroom Booking System
+
+A web-based classroom booking system for managing classroom reservations and schedules.
+
+## Features
+
+- Classroom booking management
+- User authentication and authorization
+- Schedule management
+- Admin dashboard
+- Automated deployment to InfinityFree
+
+## Requirements
+
+- PHP 8.1 or higher
+- MySQL 5.7 or higher
+- Composer
+- Git
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/YOUR_USERNAME/classroom-booking.git
+cd classroom-booking
+```
+
+2. Install dependencies:
+```bash
+composer install
+```
+
+3. Copy environment file:
+```bash
+cp .env.example .env
+```
+
+4. Configure your environment variables in `.env`
+
+5. Run the application:
+```bash
+php -S localhost:8000
+```
+
+## Development
+
+1. Create a new branch:
+```bash
+git checkout -b feature/your-feature-name
+```
+
+2. Make your changes
+
+3. Run tests:
+```bash
+composer test
+```
+
+4. Push your changes:
+```bash
+git add .
+git commit -m "Your commit message"
+git push origin feature/your-feature-name
+```
+
+5. Create a Pull Request on GitHub
+
+## Deployment
+
+The system uses GitHub Actions for continuous integration and deployment. When code is pushed to the main branch:
+
+1. Tests are run automatically
+2. Code quality checks are performed
+3. If all checks pass, the code is deployed to InfinityFree
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+This project is licensed under the MIT License.
+
 # classroombookings - open source room booking system for schools.
 
 By Craig A Rodway.
