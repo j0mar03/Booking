@@ -137,5 +137,5 @@ jobs:
         username: if0_39013535
         password: Gre8DubeQv
         local-dir: ./dist/
-        server-dir: /
+        server-dir: /htdocs/
         dangerous-clean-slate: false
