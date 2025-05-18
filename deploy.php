@@ -1,10 +1,10 @@
 <?php
 // Database configuration for InfinityFree
 $db_config = [
-    'hostname' => 'sql.infinityfree.com',  // You'll get this from InfinityFree
-    'username' => 'if0_39013535,           // You'll get this from InfinityFree
-    'password' => 'Gre8DubeQv',        // You'll set this in InfinityFree
-    'database' => 'if0_39013535_csbook',          // You'll get this from InfinityFree
+    'hostname' => 'sql.infinityfree.com',
+    'username' => 'if0_39013535',
+    'password' => 'Gre8DubeQv',
+    'database' => 'if0_39013535_csbook',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE,
@@ -31,4 +31,4 @@ $config_content = preg_replace(
 );
 file_put_contents($config_file, $config_content);
 
-echo "Database configuration updated successfully!\n"; 
+echo "Database configuration updated successfully!\n";
