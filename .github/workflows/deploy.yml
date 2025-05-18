@@ -84,7 +84,7 @@ jobs:
         php deploy-to-infinity.php
         
     - name: Deploy to InfinityFree
-      uses: SamKirkland/FTP-Deploy-Action@4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@v4
       with:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
