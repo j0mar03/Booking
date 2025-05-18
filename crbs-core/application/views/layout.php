@@ -8,24 +8,24 @@ $enable_doorbell = $this->userauth->is_level(ADMINISTRATOR) && !is_demo_mode();
 $global_menu = $this->menu_model->global();
 $footer_menu = $global_menu;
 
-if ($enable_onset_link) {
-	$footer_menu[] = [
-		'label' => 'Changelog',
-		'url' => config_item('onset_public_url'),
-		'icon' => 'bell.png',
-		'ext' => true,
-	];
-}
+// if ($enable_onset_link) {
+// 	$footer_menu[] = [
+// 		'label' => 'Changelog',
+// 		'url' => config_item('onset_public_url'),
+// 		'icon' => 'bell.png',
+// 		'ext' => true,
+// 	];
+// }
 
-if ($enable_doorbell) {
-	$footer_menu[] = [
-		'label' => 'Feedback',
-		'url' => '#',
-		'icon' => 'comment.png',
-		'id' => 'feedback_link',
-		'attrs' => 'style="opacity:0.3;pointer-events:none"',
-	];
-}
+// if ($enable_doorbell) {
+// 	$footer_menu[] = [
+// 		'label' => 'Feedback',
+// 		'url' => '#',
+// 		'icon' => 'comment.png',
+// 		'id' => 'feedback_link',
+// 		'attrs' => 'style="opacity:0.3;pointer-events:none"',
+// 	];
+// }
 
 $css = [
 	'screen' => (ENVIRONMENT === 'development' ? 'assets/css/main.css' : 'assets/css/main.min.css'),
@@ -84,6 +84,10 @@ $css = [
 
 			<div class="block-group">
 
+				<div class="block b-10 header-logo" style="display: flex; align-items: center;">
+					<img src="<?= base_url('assets/brand/itechlogo.png') ?>" alt="Logo" style="height: 48px; margin-right: 16px;">
+				</div>
+
 				<div class="block b-50 header-title">
 					<div class="title">
 						<?php
@@ -107,16 +111,7 @@ $css = [
 
 				<div class="block b-50 header-meta">
 					<?php
-					if ( ! empty($global_menu)) {
-						echo "<p class='iconbar'>";
-						foreach ($global_menu as $idx => $item) {
-							$icon = img('assets/images/ui/' . $item['icon'], FALSE, "align='top' alt='{$item['label']}'");
-							$label = $icon . $item['label'];
-							echo anchor($item['url'], $label);
-						}
-						echo "</p>";
-					}
-
+					// Removed navigation icons and links from header
 					if ($this->userauth->logged_in()) {
 						$display = $this->userauth->user->displayname;
 						$label = (!empty($display))
@@ -124,7 +119,6 @@ $css = [
 							: $this->userauth->user->username;
 						echo sprintf('<p class="normal">Logged in as %s</p>', html_escape($label));
 					}
-
 					?>
 				</div>
 
@@ -182,10 +176,6 @@ $css = [
 					</div>
 					<div class="block b-40">
 						<div style="font-size:90%;color:#678; line-height: 2; text-align:right">
-							<span><a href="https://www.classroombookings.com/" target="_blank">classroombookings</a> version <?= VERSION ?>.
-							<br>
-							&copy; <?= date('Y') ?> Craig A Rodway.</span>
-							<br />
 							Load time: <?php echo $this->benchmark->elapsed_time() ?> seconds.
 						</div>
 					</div>

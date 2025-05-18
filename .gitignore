@@ -1,0 +1,39 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+logs/
+
+# Cache
+/cache/
+*.cache
+
+# Uploads
+/uploads/*
+!/uploads/.gitkeep
+
+# Deployment files
+deployment_*.zip
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.lock
+composer.phar
+
+# PHPUnit
+.phpunit.result.cache 
